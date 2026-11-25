@@ -1,0 +1,13 @@
+{
+  "name": "cognifyz-full-stack-workbench",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A single browser platform for Cognifyz full-stack tasks 1 through 8",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test/smoke.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

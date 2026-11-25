@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111522">
+    <title>Cognifyz Workbench</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar" aria-label="Main navigation">
+        <a class="brand" href="#overview" aria-label="Cognifyz Workbench home">
+          <span class="brand-mark">C</span>
+          <span><strong>cognifyz</strong><small>FULL STACK WORKBENCH</small></span>
+        </a>
+        <p class="nav-label">WORKSPACE</p>
+        <nav class="navigation">
+          <a class="nav-link active" href="#overview" data-view="overview"><span class="nav-icon">⌂</span>Overview</a>
+          <a class="nav-link" href="#registration" data-view="registration"><span class="nav-icon">01</span>Server form</a>
+          <a class="nav-link" href="#validation" data-view="validation"><span class="nav-icon">02</span>Validation</a>
+          <a class="nav-link" href="#responsive" data-view="responsive"><span class="nav-icon">03</span>Responsive UI</a>
+          <a class="nav-link" href="#task-board" data-view="task-board"><span class="nav-icon">04</span>Dynamic task board</a>
+          <a class="nav-link" href="#crud" data-view="crud"><span class="nav-icon">05</span>CRUD API</a>
+          <a class="nav-link" href="#account" data-view="account"><span class="nav-icon">06</span>Authentication</a>
+          <a class="nav-link" href="#weather" data-view="weather"><span class="nav-icon">07</span>External API</a>
+          <a class="nav-link" href="#server-tools" data-view="server-tools"><span class="nav-icon">08</span>Server tools</a>
+        </nav>
+        <div class="sidebar-footer">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span><strong>Local workspace</strong><small id="connection-status">Connecting…</small></span>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <button class="menu-button" id="menu-button" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+          <div class="breadcrumbs">Cognifyz <span>/</span> <strong id="crumb">Overview</strong></div>
+          <div class="top-actions">
+            <span class="environment-pill"><span class="status-dot"></span> Development</span>
+            <span class="avatar" id="avatar">CW</span>
+          </div>
+        </header>
+
+        <div class="content">
+          <section class="view active" id="view-overview" data-title="Overview">
+            <div class="welcome-row">
+              <div>
+                <p class="eyebrow">YOUR FULL-STACK LAB</p>
+                <h1>One workspace.<br><span>Eight tasks in motion.</span></h1>
+                <p class="lead">Build, validate, and explore every Cognifyz exercise from one responsive browser platform.</p>
+              </div>
+              <div class="welcome-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><span>✦</span><i>01—08</i></div>
+            </div>
+
+            <div class="metrics-grid">
+              <article class="metric-card"><span class="metric-icon violet">▦</span><span class="metric-label">TASKS AVAILABLE</span><strong>08</strong><small>All modules in one place</small></article>
+              <article class="metric-card"><span class="metric-icon green">↗</span><span class="metric-label">API STATUS</span><strong id="api-status">Checking</strong><small>Local server connection</small></article>
+              <article class="metric-card"><span class="metric-icon amber">◷</span><span class="metric-label">YOUR PROGRESS</span><strong id="progress-count">0 / 8</strong><small>Modules explored this visit</small></article>
+            </div>
+
+            <div class="section-heading"><div><p class="eyebrow">LEARNING PATH</p><h2>Explore the tasks</h2></div><span class="subtle">Select a module to get started</span></div>
+            <div class="task-grid">
+              <a class="task-card" href="#registration" data-view="registration"><span class="task-number">01</span><span class="task-card-icon">⌁</span><strong>Basic server</strong><small>Send a registration form to Node</small><span class="task-arrow">↗</span></a>
+              <a class="task-card" href="#validation" data-view="validation"><span class="task-number">02</span><span class="task-card-icon">✓</span><strong>Validation</strong><small>Validate fields on client and server</small><span class="task-arrow">↗</span></a>
+              <a class="task-card" href="#responsive" data-view="responsive"><span class="task-number">03</span><span class="task-card-icon">▤</span><strong>Responsive UI</strong><small>See the layout adapt to your screen</small><span class="task-arrow">↗</span></a>
+              <a class="task-card" href="#task-board" data-view="task-board"><span class="task-number">04</span><span class="task-card-icon">☷</span><strong>Dynamic DOM</strong><small>Add, complete, and remove tasks</small><span class="task-arrow">↗</span></a>
+              <a class="task-card" href="#crud" data-view="crud"><span class="task-number">05</span><span class="task-card-icon">⟳</span><strong>CRUD API</strong><small>Create and manage API resources</small><span class="task-arrow">↗</span></a>
+              <a class="task-card" href="#account" data-view="account"><span class="task-number">06</span><span class="task-card-icon">♙</span><strong>Authentication</strong><small>Register, sign in, and view a profile</small><span class="task-arrow">↗</span></a>
+              <a class="task-card" href="#weather" data-view="weather"><span class="task-number">07</span><span class="task-card-icon">☼</span><strong>External API</strong><small>Look up live weather by city</small><span class="task-arrow">↗</span></a>
+              <a class="task-card" href="#server-tools" data-view="server-tools"><span class="task-number">08</span><span class="task-card-icon">⌘</span><strong>Advanced server</strong><small>Try TTL caching and background jobs</small><span class="task-arrow">↗</span></a>
+            </div>
+          </section>
+
+          <section class="view" id="view-registration" data-title="Task 01 · Basic server">
+            <div class="page-heading"><p class="eyebrow">TASK 01 · BASIC SERVER</p><h1>Registration form</h1><p class="lead">Send a form to the Node server and receive a validated response.</p></div>
+            <div class="panel form-panel">
+              <div class="panel-heading"><div><h2>Join a course</h2><p>All fields are checked by the server before a response is returned.</p></div><span class="tag">POST /api/greetings</span></div>
+              <form id="registration-form" class="form-grid">
+                <label>Full name<input name="name" autocomplete="name" minlength="2" maxlength="80" placeholder="e.g. Alex Morgan" required></label>
+                <label>Email address<input name="email" type="email" autocomplete="email" placeholder="alex@example.com" required></label>
+                <label class="span-two">Course<input name="course" minlength="2" maxlength="100" placeholder="e.g. Full Stack Development" required></label>
+                <div class="span-two form-actions"><button class="button primary" type="submit">Submit registration <span>→</span></button><p class="form-message" id="registration-message" role="status"></p></div>
+              </form>
+            </div>
+          </section>
+
+          <section class="view" id="view-validation" data-title="Task 02 · Validation">
+            <div class="page-heading"><p class="eyebrow">TASK 02 · CLIENT + SERVER VALIDATION</p><h1>Validated submission</h1><p class="lead">The browser improves input quality; the server remains the source of truth.</p></div>
+            <div class="two-column">
+              <div class="panel">
+                <div class="panel-heading"><div><h2>Participant details</h2><p>Age must be a whole number from 16 to 100.</p></div><span class="tag">POST /api/submissions</span></div>
+                <form id="validation-form" class="form-stack">
+                  <label>Full name<input name="name" autocomplete="name" minlength="2" maxlength="80" placeholder="Your name" required></label>
+                  <label>Email address<input name="email" type="email" autocomplete="email" placeholder="you@example.com" required></label>
+                  <label>Age<input name="age" type="number" min="16" max="100" step="1" placeholder="25" required></label>
+                  <button class="button primary" type="submit">Validate &amp; save <span>→</span></button>
+                  <p class="form-message" id="validation-message" role="status"></p>
+                </form>
+              </div>
+              <div class="panel accent-panel"><span class="large-symbol">✓</span><p class="eyebrow">WHY VALIDATE TWICE?</p><h2>Good UX, safer data.</h2><p>Client-side checks give immediate feedback. Server-side checks protect the API even when a request bypasses the browser form.</p><div class="mini-stat"><span>Saved this session</span><strong id="submission-count">0</strong></div></div>
+            </div>
+          </section>
+
+          <section class="view" id="view-responsive" data-title="Task 03 · Responsive UI">
+            <div class="page-heading"><p class="eyebrow">TASK 03 · RESPONSIVE UI</p><h1>Designed for every screen</h1><p class="lead">This workspace uses fluid layouts, flexible cards, and touch-friendly controls.</p></div>
+            <div class="responsive-demo">
+              <div class="demo-copy"><span class="tag">LIVE LAYOUT</span><h2>Resize your browser.</h2><p>Cards reflow from a wide dashboard into a single-column mobile view. The navigation becomes a compact menu and form controls remain comfortable to use.</p><div class="breakpoint-list"><div><span class="breakpoint-dot"></span><strong>Desktop</strong><small>Multi-column overview</small></div><div><span class="breakpoint-dot"></span><strong>Tablet</strong><small>Flexible two-column cards</small></div><div><span class="breakpoint-dot"></span><strong>Mobile</strong><small>Stacked, scroll-friendly layout</small></div></div></div>
+              <div class="responsive-visual"><div class="visual-top"><span></span><span></span><span></span></div><div class="visual-content"><div class="visual-hero"></div><div class="visual-row"><span></span><span></span></div><div class="visual-row"><span></span><span></span></div></div><span class="visual-caption">ONE UI · EVERY DEVICE</span></div>
+            </div>
+          </section>
+
+          <section class="view" id="view-task-board" data-title="Task 04 · Dynamic DOM">
+            <div class="page-heading"><p class="eyebrow">TASK 04 · DYNAMIC DOM</p><h1>Personal task board</h1><p class="lead">Add items and update the page dynamically. Your list is saved in this browser.</p></div>
+            <div class="panel">
+              <div class="panel-heading"><div><h2>My tasks</h2><p><span id="board-count">0</span> items · stored locally on this device</p></div><span class="tag">VANILLA JAVASCRIPT</span></div>
+              <form id="board-form" class="inline-form"><label class="visually-hidden" for="board-input">New task</label><input id="board-input" maxlength="120" placeholder="What needs to get done?" required><button class="button primary" type="submit">Add task <span>＋</span></button></form>
+              <ul class="board-list" id="board-list"></ul>
+              <p class="empty-state" id="board-empty">Nothing here yet. Add your first task above.</p>
+            </div>
+          </section>
+
+          <section class="view" id="view-crud" data-title="Task 05 · CRUD API">
+            <div class="page-heading"><p class="eyebrow">TASK 05 · REST API</p><h1>Resource manager</h1><p class="lead">Create, read, update, and delete resources through the same local API.</p></div>
+            <div class="panel">
+              <div class="panel-heading"><div><h2>Workbench items</h2><p>Changes are kept in memory while the server is running.</p></div><span class="tag">/api/items</span></div>
+              <form id="item-form" class="inline-form"><label class="visually-hidden" for="item-title">Item title</label><input id="item-title" maxlength="120" placeholder="Name a resource…" required><button class="button primary" id="item-submit" type="submit">Create item <span>＋</span></button><button class="button secondary hidden" id="item-cancel" type="button">Cancel</button></form>
+              <p class="form-message" id="item-message" role="status"></p>
+              <div class="item-list" id="item-list"></div>
+            </div>
+          </section>
+
+          <section class="view" id="view-account" data-title="Task 06 · Authentication">
+            <div class="page-heading"><p class="eyebrow">TASK 06 · AUTHENTICATION</p><h1>Your account</h1><p class="lead">Passwords are hashed on the server. Sessions are short-lived in-memory demo tokens.</p></div>
+            <div class="two-column">
+              <div class="panel">
+                <div class="panel-heading"><div><h2 id="auth-title">Create an account</h2><p id="auth-subtitle">Use a valid email and a password of at least 8 characters.</p></div><span class="tag">DEMO AUTH</span></div>
+                <div id="auth-forms">
+                  <div class="auth-switch"><button class="switch-button active" type="button" data-auth-mode="register">Register</button><button class="switch-button" type="button" data-auth-mode="login">Sign in</button></div>
+                  <form id="auth-form" class="form-stack">
+                    <label id="auth-name-label">Name<input name="name" autocomplete="name" minlength="2" maxlength="80" placeholder="Your name" required></label>
+                    <label>Email address<input name="email" type="email" autocomplete="email" placeholder="you@example.com" required></label>
+                    <label>Password<input name="password" type="password" autocomplete="new-password" minlength="8" maxlength="128" placeholder="At least 8 characters" required></label>
+                    <button class="button primary" id="auth-submit" type="submit">Create account <span>→</span></button>
+                    <p class="form-message" id="auth-message" role="status"></p>
+                  </form>
+                </div>
+                <div id="profile-card" class="profile-card hidden"><span class="profile-avatar" id="profile-avatar">A</span><div><p class="eyebrow">SIGNED IN</p><h2 id="profile-name"></h2><p id="profile-email"></p></div><button class="button secondary" id="logout-button" type="button">Sign out</button></div>
+                <p class="note">Educational demo: accounts and tokens reset when the server restarts. Use a persistent database and session store for production.</p>
+              </div>
+              <div class="panel accent-panel"><span class="large-symbol">♙</span><p class="eyebrow">AUTH FLOW</p><h2>Register → authenticate → access profile.</h2><p>Protected profile requests require a bearer token. Passwords are never returned by the API.</p><div class="mini-stat"><span>Security baseline</span><strong>Hashed</strong></div></div>
+            </div>
+          </section>
+
+          <section class="view" id="view-weather" data-title="Task 07 · External API">
+            <div class="page-heading"><p class="eyebrow">TASK 07 · EXTERNAL API</p><h1>Weather lookup</h1><p class="lead">Search a city using Open-Meteo geocoding and forecast APIs. No API key required.</p></div>
+            <div class="weather-layout">
+              <div class="panel weather-panel">
+                <div class="panel-heading"><div><h2>Find current conditions</h2><p>Enter a city to request its latest forecast.</p></div><span class="tag">LIVE API</span></div>
+                <form id="weather-form" class="inline-form"><label class="visually-hidden" for="city-input">City</label><input id="city-input" maxlength="80" placeholder="Try Tokyo, London, or Toronto" required><button class="button primary" type="submit">Search <span>→</span></button></form>
+                <p class="form-message" id="weather-message" role="status"></p>
+                <div class="weather-result hidden" id="weather-result"></div>
+              </div>
+              <div class="weather-side"><div class="weather-orb">☼</div><p>Weather data is fetched on the server with an 8-second timeout and per-IP rate limit. If the external service is unavailable, the page will show a clear error.</p></div>
+            </div>
+          </section>
+
+          <section class="view" id="view-server-tools" data-title="Task 08 · Advanced server">
+            <div class="page-heading"><p class="eyebrow">TASK 08 · ADVANCED SERVER</p><h1>Cache &amp; background jobs</h1><p class="lead">See a short-lived time cache, queue demo work, and inspect its status.</p></div>
+            <div class="two-column">
+              <div class="panel">
+                <div class="panel-heading"><div><h2>Time cache</h2><p>Cached for 15 seconds on the server.</p></div><span class="tag">TTL · 15 SEC</span></div>
+                <div class="time-display"><span class="time-icon">◷</span><div><p class="eyebrow">SERVER TIME</p><strong id="server-time">—</strong><small id="cache-state">Click refresh to fetch</small></div></div>
+                <button class="button secondary" id="refresh-time" type="button">Refresh server time <span>↻</span></button>
+              </div>
+              <div class="panel">
+                <div class="panel-heading"><div><h2>Job queue</h2><p>Demo jobs complete after about 1.5 seconds.</p></div><span class="tag">IN-MEMORY</span></div>
+                <form id="job-form" class="inline-form"><label class="visually-hidden" for="job-input">Job description</label><input id="job-input" maxlength="200" placeholder="Describe a small job…" required><button class="button primary" type="submit">Queue job <span>＋</span></button></form>
+                <p class="form-message" id="job-message" role="status"></p>
+                <div class="job-list" id="job-list"></div>
+              </div>
+            </div>
+          </section>
+          <footer class="footer"><span>COGNIFYZ WORKBENCH</span><span>Tasks 01—08 · Learning build</span></footer>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
